@@ -1,0 +1,83 @@
+import random
+"""
+user_option = input("piedra, papel, o tijera")
+#agrego .lower asi si el usuario escribe en mayusculas se transforma todo en  minuscula
+user_option = user_option.lower()
+computer_option = "piedra"  #esto hace que el cpmputador siempre sea piedra, transformo en piedra, pel o tijera y para agregar esa funcion aleatorio importo random
+
+if user_option == computer_option:
+  print("Hay empate")
+elif user_option == "piedra":
+  if computer_option == "tijera":
+    print("piedra gana a tijera")
+    print("user ganó")
+  else:
+    print("papel gana a tijera")
+    print("computador ganó")
+"""
+computer_wins=0
+user_wins=0
+
+rounds= 1
+
+while True:
+  print( "*" *10)
+  print( "ROUND", rounds)
+  print( "*" *10)
+
+  print("computer_wins", computer_wins)
+  print("user_wins", user_wins)
+  # voy cambiando computer_option a tijera, a papel
+  options = ("piedra", "papel", "tijera")
+  user_option = input("piedra, papel, o tijera =>")
+  user_option = user_option.lower()
+  
+  rounds +=1
+  #si escribo perro no esta en las opciones, para alertar:
+  if not user_option in options:
+    print("opcion invalida")
+    continue
+  computer_option = random.choice(options)  # uso tuplas, creo options, random choice
+  
+  print("user_option =>", user_option)
+  print("computer_option =>", computer_option)
+  
+  if user_option == computer_option:
+    print("Hay empate")
+  elif user_option == "piedra":
+    if computer_option == "tijera":
+      print("piedra gana a piedra")
+      print("user ganó")
+      user_wins+= 1
+    else:
+      print("papel gana a tijera")
+      print("computador ganó")
+      computer_wins +=1  
+  # Listo logica del user con piedra, ahora vamos con user=papel
+  elif user_option == "papel":
+    if computer_option == "tijera":
+      print("tijera gano a papel")
+      print("computer ganó")
+      computer_wins +=1
+    else:
+      print("papel gana a piedra")
+      print("user ganó")
+      user_wins +=1
+  # Listo logica del user con piedra, ahora vamos con user=tijera
+  elif user_option == "tijera":
+    if computer_option == "papel":
+      print("tijera gano a papel")
+      print("user ganó")
+      user_wins +=1
+    else:
+      print("piedra gana a tijera")
+      print("computer ganó")
+      computer_wins +=1
+      
+  if computer_wins ==2:
+    print(" La computafora ha ganado")
+    break
+  if user_wins ==2:
+    print("El usuario ha ganado")
+    break
+      
